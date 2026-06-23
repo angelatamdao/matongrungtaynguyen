@@ -267,19 +267,42 @@
 
   <!-- Script for form interactivity -->
   <script>
-    document.getElementById('orderForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      const name = document.getElementById('fullName').value;
-      const phone = document.getElementById('phoneNumber').value;
-      const combo = document.getElementById('comboSelect').options[document.getElementById('comboSelect').selectedIndex].text;
-      
-      console.log('Order Submitted:', { name, phone, combo });
-      
-      // Hide the form, show success message
+  const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyvTFA9rg6vlzeQWGUNk2RSCX8b0bVJEtO6K11yNMRIom9UVF0GlWbloQmpUknqEbic-w/exec';
+
+  document.getElementById('orderForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const submitButton = document.getElementById('btn-submit');
+    const name = document.getElementById('fullName').value.trim();
+    const phone = document.getElementById('phoneNumber').value.trim();
+    const combo = document.getElementById('comboSelect').options[document.getElementById('comboSelect').selectedIndex].text;
+
+    submitButton.disabled = true;
+    submitButton.textContent = 'Đang gửi...';
+
+    try {
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'text/plain;charset=utf-8'
+        },
+        body: JSON.stringify({
+          name: name,
+          phone: phone,
+          combo: combo,
+          source: window.location.href
+        })
+      });
+
       this.style.display = 'none';
       document.getElementById('successMessage').style.display = 'block';
-    });
-  </script>
+    } catch (error) {
+      alert('Có lỗi khi gửi thông tin. Vui lòng thử lại hoặc liên hệ Zalo.');
+      submitButton.disabled = false;
+      submitButton.textContent = 'Nhận Ưu Đãi Ngay';
+    }
+  });
+</script>
 </body>
 </html>
