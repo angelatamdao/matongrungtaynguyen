@@ -442,6 +442,19 @@ header {
   scroll-margin-top: 40px;
 }
 
+.signup-page header {
+  position: static;
+}
+
+.signup-section {
+  min-height: calc(100vh - 96px);
+  padding: 56px 0 80px;
+}
+
+.signup-grid {
+  grid-template-columns: 0.9fr 1.1fr;
+}
+
 .cta-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
