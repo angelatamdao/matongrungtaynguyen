@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Đăng ký mua hoặc nhận tư vấn combo sen đá mini dễ chăm.">
+  <title>Đăng ký tư vấn - Vườn Sen Đá</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../index.css">
+</head>
+<body class="signup-page">
+  <header>
+    <div class="container header-content">
+      <a href="../" class="logo" id="logo">
+        <i class="fa-solid fa-leaf"></i> Vườn Sen Đá
+      </a>
+      <ul class="nav-links">
+        <li><a href="../" class="nav-link">Trang chủ</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <section class="cta-section signup-section">
+      <div class="container cta-grid signup-grid">
+        <div class="cta-info">
+          <h2>Đăng ký mua / Nhận tư vấn</h2>
+          <p>Gửi thông tin để vườn hỗ trợ bạn chọn combo sen đá phù hợp nhất.</p>
+          <ul class="cta-bullets">
+            <li><i class="fa-solid fa-circle-check"></i> Miễn phí giao hàng khi đặt hàng hôm nay.</li>
+            <li><i class="fa-solid fa-circle-check"></i> Bảo hành 1 đổi 1 tận tay trong 7 ngày.</li>
+            <li><i class="fa-solid fa-circle-check"></i> Tặng kèm túi đất dinh dưỡng chuyên dụng.</li>
+          </ul>
+        </div>
+
+        <div class="form-wrapper">
+          <h3>Thông tin đăng ký</h3>
+          <p>Vườn sẽ liên hệ hỗ trợ bạn chọn chậu cây xinh xắn nhất!</p>
+
+          <form id="orderForm">
+            <div class="form-group">
+              <label for="fullName">Họ và tên của bạn</label>
+              <input type="text" id="fullName" placeholder="Ví dụ: Nguyễn Văn A" required>
+            </div>
+            <div class="form-group">
+              <label for="phoneNumber">Số điện thoại hoặc Zalo của bạn</label>
+              <input type="tel" id="phoneNumber" placeholder="Ví dụ: 0912345678" required>
+            </div>
+            <div class="form-group">
+              <label for="placementSelect">Bạn muốn đặt sen đá ở đâu?</label>
+              <select id="placementSelect" required>
+                <option value="" disabled selected>Chọn vị trí phù hợp</option>
+                <option value="Bàn làm việc">Bàn làm việc</option>
+                <option value="Phòng ngủ">Phòng ngủ</option>
+                <option value="Quầy / kệ trang trí">Quầy / kệ trang trí</option>
+                <option value="Nơi khác">Nơi khác</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="experienceSelect">Bạn từng chăm sen đá hoặc cây mini chưa?</label>
+              <select id="experienceSelect" required>
+                <option value="" disabled selected>Chọn kinh nghiệm của bạn</option>
+                <option value="Chưa từng chăm">Chưa từng chăm</option>
+                <option value="Đã từng chăm nhưng cây dễ héo">Đã từng chăm nhưng cây dễ héo</option>
+                <option value="Đã có kinh nghiệm chăm cây">Đã có kinh nghiệm chăm cây</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="comboSelect">Chọn gói Combo Sen Đá</label>
+              <select id="comboSelect" required>
+                <option value="combo1">Combo Khởi Đầu (1 Cây + Chậu Gốm) - 99k</option>
+                <option value="combo2" selected>Combo Trải Nghiệm (3 Cây + Phụ Kiện + Đất) - 249k</option>
+                <option value="combo3">Combo Phủ Xanh (5 Cây + Phụ Kiện + Đất + Bình Tưới) - 379k</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-solid btn-submit" id="btn-submit">Nhận Ưu Đãi Ngay</button>
+          </form>
+
+          <div id="successMessage" style="display: none;">
+            <i class="fa-solid fa-circle-check"></i>
+            <h4>Gửi thông tin thành công!</h4>
+            <p>Vườn Sen Đá sẽ gọi điện tư vấn trực tiếp cho bạn trong vòng 15 phút tới.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyvTFA9rg6vlzeQWGUNk2RSCX8b0bVJEtO6K11yNMRIom9UVF0GlWbloQmpUknqEbic-w/exec';
+
+    document.getElementById('orderForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const submitButton = document.getElementById('btn-submit');
+      const name = document.getElementById('fullName').value.trim();
+      const phone = document.getElementById('phoneNumber').value.trim();
+      const placement = document.getElementById('placementSelect').value;
+      const experience = document.getElementById('experienceSelect').value;
+      const combo = document.getElementById('comboSelect').options[document.getElementById('comboSelect').selectedIndex].text;
+
+      submitButton.disabled = true;
+      submitButton.textContent = 'Đang gửi...';
+
+      try {
+        await fetch(GOOGLE_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'text/plain;charset=utf-8'
+          },
+          body: JSON.stringify({
+            name: name,
+            phone: phone,
+            placement: placement,
+            experience: experience,
+            combo: combo,
+            source: window.location.href
+          })
+        });
+
+        this.style.display = 'none';
+        document.getElementById('successMessage').style.display = 'block';
+      } catch (error) {
+        alert('Có lỗi khi gửi thông tin. Vui lòng thử lại hoặc liên hệ Zalo 0935.147.325.');
+        submitButton.disabled = false;
+        submitButton.textContent = 'Nhận Ưu Đãi Ngay';
+      }
+    });
+  </script>
+</body>
+</html>

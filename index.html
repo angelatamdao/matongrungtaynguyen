@@ -26,7 +26,7 @@
         <li><a href="#problems-section" class="nav-link">Lo lắng</a></li>
         <li><a href="#benefits-section" class="nav-link">Lợi ích</a></li>
         <li><a href="#register-section" class="nav-link">Ưu đãi</a></li>
-        <li><a href="#register-section" class="btn btn-solid" style="padding: 10px 24px;">Mua ngay</a></li>
+        <li><a href="#register-section" class="btn btn-solid nav-cta">Mua ngay</a></li>
       </ul>
     </div>
   </header>
@@ -41,14 +41,14 @@
             <path d="M20 80 C 40 30, 70 20, 80 40 C 60 70, 30 90, 20 80 Z" fill="#4e6543"/>
             <path d="M35 65 C 45 45, 60 40, 65 45 C 55 60, 45 70, 35 65 Z" fill="#faf7f0"/>
           </svg>
-          <span class="text-olive">Sen Đá</span> <span class="text-gold">Mini</span> —<br>
-          Chạm Vào <span class="text-olive">Thiên Nhiên</span>,<br>
-          <span class="text-gold">Bình Yên</span> Từng Góc Nhỏ
+          Không Cần Biết <span class="text-olive">Chọn Cây</span> —<br>
+          Chọn <span class="text-gold">1, 3 Hoặc 5 Chậu</span><br>
+          Theo <span class="text-olive">Góc Bàn</span> Của Bạn
           <svg class="title-leaf-right" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M80 80 C 60 30, 30 20, 20 40 C 40 70, 70 90, 80 80 Z" fill="#d5a247"/>
           </svg>
         </h1>
-        <p class="hero-subtext">Giải pháp xanh hoàn hảo cho người bận rộn. Không tốn công chăm sóc, mang lại năng lượng tích cực và làm tươi mới bàn làm việc của bạn ngay hôm nay.</p>
+        <p class="hero-subtext">Nhỏ gọn, đã phối sẵn cho bàn làm việc và phòng nhỏ. Bạn chỉ cần chọn mức xanh vừa đủ: 1 chậu để thử, 3 chậu cho một góc nhỏ, hoặc 5 chậu để phủ xanh rõ hơn.</p>
         <div class="hero-buttons">
           <a href="#register-section" class="btn btn-solid" id="btn-hero-cta">Tìm combo phù hợp</a>
         </div>
@@ -127,7 +127,7 @@
     <div class="container">
       <h2 class="section-title">Bạn muốn có góc xanh nhưng lo lắng...</h2>
       <p class="section-subtitle">Chúng tôi thấu hiểu những băn khoăn khiến góc làm việc của bạn vẫn đang thiếu đi bóng dáng mát lành của thiên nhiên.</p>
-      
+
       <div class="problem-grid">
         <!-- Card 1 -->
         <div class="problem-card">
@@ -204,7 +204,7 @@
       </div>
 
       <div class="benefits-section-footer">
-        <a href="#register-section" class="btn btn-solid" style="padding: 16px 48px; font-size: 18px;">Khám phá bộ sưu tập</a>
+        <a href="#register-section" class="btn btn-solid benefits-cta">Khám phá bộ sưu tập</a>
       </div>
     </div>
   </section>
@@ -225,19 +225,38 @@
       <div class="form-wrapper">
         <h3>Đăng ký mua / Nhận tư vấn</h3>
         <p>Vui lòng gửi thông tin, vườn sẽ liên hệ hỗ trợ bạn chọn chậu cây xinh xắn nhất!</p>
-        
+
         <form id="orderForm">
           <div class="form-group">
             <label for="fullName">Họ và tên của bạn</label>
             <input type="text" id="fullName" placeholder="Ví dụ: Nguyễn Văn A" required>
           </div>
           <div class="form-group">
-            <label for="phoneNumber">Số điện thoại liên hệ</label>
+            <label for="phoneNumber">Số điện thoại hoặc Zalo của bạn</label>
             <input type="tel" id="phoneNumber" placeholder="Ví dụ: 0912345678" required>
           </div>
           <div class="form-group">
+            <label for="placementSelect">Bạn muốn đặt sen đá ở đâu?</label>
+            <select id="placementSelect" required>
+              <option value="" disabled selected>Chọn vị trí phù hợp</option>
+              <option value="Bàn làm việc">Bàn làm việc</option>
+              <option value="Phòng ngủ">Phòng ngủ</option>
+              <option value="Quầy / kệ trang trí">Quầy / kệ trang trí</option>
+              <option value="Nơi khác">Nơi khác</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="experienceSelect">Bạn từng chăm sen đá hoặc cây mini chưa?</label>
+            <select id="experienceSelect" required>
+              <option value="" disabled selected>Chọn kinh nghiệm của bạn</option>
+              <option value="Chưa từng chăm">Chưa từng chăm</option>
+              <option value="Đã từng chăm nhưng cây dễ héo">Đã từng chăm nhưng cây dễ héo</option>
+              <option value="Đã có kinh nghiệm chăm cây">Đã có kinh nghiệm chăm cây</option>
+            </select>
+          </div>
+          <div class="form-group">
             <label for="comboSelect">Chọn gói Combo Sen Đá</label>
-            <select id="comboSelect">
+            <select id="comboSelect" required>
               <option value="combo1">Combo Khởi Đầu (1 Cây + Chậu Gốm) - 99k</option>
               <option value="combo2" selected>Combo Trải Nghiệm (3 Cây + Phụ Kiện + Đất) - 249k</option>
               <option value="combo3">Combo Phủ Xanh (5 Cây + Phụ Kiện + Đất + Bình Tưới) - 379k</option>
@@ -246,7 +265,7 @@
           <button type="submit" class="btn btn-solid btn-submit" id="btn-submit">Nhận Ưu Đãi Ngay</button>
         </form>
 
-        <div id="successMessage" style="display: none;">
+        <div id="successMessage">
           <i class="fa-solid fa-circle-check"></i>
           <h4>Gửi thông tin thành công!</h4>
           <p>Vườn Sen Đá sẽ gọi điện tư vấn trực tiếp cho bạn trong vòng 15 phút tới.</p>
@@ -265,6 +284,71 @@
     </div>
   </footer>
 
+  <!-- Chatbot bán hàng theo kịch bản sales_script.md -->
+  <aside class="sales-chatbot" aria-label="Tư vấn chọn combo sen đá">
+    <div class="chatbot-panel" id="chatbot-panel" hidden>
+      <div class="chatbot-header">
+        <div class="chatbot-brand">
+          <span class="chatbot-avatar" aria-hidden="true">
+            <i class="fa-solid fa-leaf"></i>
+          </span>
+          <div>
+            <strong>Vườn Sen Đá</strong>
+            <span><i class="fa-solid fa-circle" aria-hidden="true"></i> Tư vấn 24/7</span>
+          </div>
+        </div>
+        <button class="chatbot-close" id="chatbot-close" type="button" aria-label="Đóng cửa sổ chat">
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <div class="chatbot-messages" id="chatbot-messages" role="log" aria-live="polite" aria-relevant="additions">
+        <div class="chat-message chat-message-bot">
+          Chào bạn 🌿 Mình là bạn tư vấn của Vườn Sen Đá. Bạn muốn thử 1 chậu, làm một góc nhỏ với 3 chậu, hay phủ xanh hơn với 5 chậu?
+        </div>
+      </div>
+
+      <div class="chatbot-quick-replies" id="chatbot-quick-replies" role="group" aria-label="Câu hỏi gợi ý">
+        <button type="button" data-question="Giá các combo bao nhiêu?">Xem giá</button>
+        <button type="button" data-question="Sản phẩm có phù hợp với mình không?">Chọn combo</button>
+        <button type="button" data-question="Mình từng làm cây chết, có dễ chăm không?">Cách chăm</button>
+        <button type="button" data-question="Để mình nghĩ thêm">Nghĩ thêm</button>
+      </div>
+
+      <a class="chatbot-cta" id="chatbot-cta" href="#register-section" hidden>
+        <i class="fa-solid fa-seedling" aria-hidden="true"></i>
+        <span>Chọn combo phù hợp</span>
+      </a>
+
+      <form class="chatbot-form" id="chatbot-form">
+        <label class="sr-only" for="chatbot-input">Nhập câu hỏi cho Vườn Sen Đá</label>
+        <input
+          id="chatbot-input"
+          name="message"
+          type="text"
+          placeholder="Hỏi về giá, cách chọn, cách chăm..."
+          autocomplete="off"
+          maxlength="240"
+          required
+        >
+        <button type="submit" aria-label="Gửi câu hỏi">
+          <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+        </button>
+      </form>
+    </div>
+
+    <button
+      class="chatbot-toggle"
+      id="chatbot-toggle"
+      type="button"
+      aria-controls="chatbot-panel"
+      aria-expanded="false"
+    >
+      <i class="fa-solid fa-comments" aria-hidden="true"></i>
+      <span>Hỏi Vườn Sen Đá</span>
+    </button>
+  </aside>
+
   <!-- Script for form interactivity -->
   <script>
   const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyvTFA9rg6vlzeQWGUNk2RSCX8b0bVJEtO6K11yNMRIom9UVF0GlWbloQmpUknqEbic-w/exec';
@@ -275,6 +359,8 @@
     const submitButton = document.getElementById('btn-submit');
     const name = document.getElementById('fullName').value.trim();
     const phone = document.getElementById('phoneNumber').value.trim();
+    const placement = document.getElementById('placementSelect').value;
+    const experience = document.getElementById('experienceSelect').value;
     const combo = document.getElementById('comboSelect').options[document.getElementById('comboSelect').selectedIndex].text;
 
     submitButton.disabled = true;
@@ -290,6 +376,8 @@
         body: JSON.stringify({
           name: name,
           phone: phone,
+          placement: placement,
+          experience: experience,
           combo: combo,
           source: window.location.href
         })
@@ -304,5 +392,6 @@
     }
   });
 </script>
+<script src="chatbot.js"></script>
 </body>
 </html>
